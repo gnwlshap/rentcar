@@ -20,7 +20,7 @@ public class JoinAction implements Action {
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 				
-		if(client_id == "" || client_pw == "" || client_pw2 == "" || name == "" || phone == "") {
+		if(client_id.equals("") || client_pw.equals("") || client_pw2.equals("") || name.equals("") || phone.equals("") || !client_pw.equals(client_pw2)) {
 			
 			request.getRequestDispatcher("join").forward(request, response);
 		}

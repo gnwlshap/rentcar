@@ -36,6 +36,7 @@
 				</tr>
 			</table>
 			<div id="button">	
+				<input type="button" value="정보수정" onclick="location.href ='update'">
 				<input type="button" value="로그아웃" onclick="logout(form)">
 			</div>
 		</form>

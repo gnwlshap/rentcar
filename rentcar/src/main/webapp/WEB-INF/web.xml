@@ -34,6 +34,16 @@
 	<!-- JSP mapping -->
 
 	<servlet>
+		<servlet-name>update</servlet-name>
+		<jsp-file>/views/update.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>update</servlet-name>
+		<url-pattern>/update</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>mypage</servlet-name>
 		<jsp-file>/views/mypage.jsp</jsp-file>
 	</servlet>

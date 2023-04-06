@@ -4,6 +4,7 @@ import controller.action.Action;
 import controller.action.JoinAction;
 import controller.action.LoginAction;
 import controller.action.LogoutAction;
+import controller.action.UpdateAction;
 
 public class ActionFactory {
 	// single tone 불필요한 instance 생성을 막기 위해 생성
@@ -27,6 +28,8 @@ public class ActionFactory {
 		if(command.equals("logout")) 
 			action = new LogoutAction();
 		
+		if(command.equals("update")) 
+			action = new UpdateAction();
 		
 		return action;
 	}

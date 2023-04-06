@@ -39,13 +39,5 @@ public class LoginAction implements Action{
 		else {
 			request.getRequestDispatcher("login").forward(request, response);
 		}
-			
-//		if(client_id == "" || client_pw == "") {
-//			
-//			request.getRequestDispatcher("join").forward(request, response);
-//		}
-		
-
 	}
-	
 }

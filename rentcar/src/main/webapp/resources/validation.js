@@ -27,23 +27,23 @@ function checkJoinValues(htmlForm) {
 		
 	if(client_id === ""){
 		alert('아이디가 입력되지 않았습니다.');
-		check = false;
+//		check = false;
 	}
 	else if(client_pw === ""){
 		alert('비밀번호가 입력되지 않았습니다.');
-		check = false;
+//		check = false;
 	}
 	else if(client_pw !== client_pw2){
 		alert('비밀번호 확인이 필요합니다.');
-		check = false;
+//		check = false;
 	}
 	else if(name === ""){
 		alert('이름이 입력되지 않았습니다.');
-		check = false;
+//		check = false;
 	}
 	else if(phone === ""){
 		alert('전화번호가 입력되지 않았습니다.');
-		check = false;
+//		check = false;
 	}
 
 //	if(check === false)
@@ -54,17 +54,15 @@ function checkJoinValues(htmlForm) {
 
 function checkLoginValues(htmlForm) {
 	
-	const client_id = document.getElementById("client_id").value;
-	const client_pw = document.getElementById("client_pw").value;
+	const client_id = document.getElementById("client_id");
+	const client_pw = document.getElementById("client_pw");
 
-	if(client_id === ""){
+	if(client_id.value === ""){
 		alert('아이디가 입력되지 않았습니다.');
-		check = false;
 	}
 	
-	else if(client_pw === ""){
+	else if(client_pw.value === ""){
 		alert('비밀번호가 입력되지 않았습니다.');
-		check = false;
 	}
 	
 	htmlForm.submit();
