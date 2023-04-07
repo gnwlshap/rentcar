@@ -22,16 +22,14 @@ public class LoginAction implements Action{
 		ClientDao clientDao = ClientDao.getInstance();
 		ArrayList<Client> list = clientDao.getAllClient();
 		
-		boolean logIn = false;
 		Client logClient = null;
 		
 		for(Client client : list)
-			if(client.getClient_id().equals(client_id) && client.getClient_pw().equals(client_pw)) {
-				logIn = true;
+			if(client.getClient_id().equals(client_id) && client.getClient_pw().equals(client_pw)) 
 				logClient = client;
-			}
+			
 		
-		if(logIn) {
+		if(logClient != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("log", logClient);
 			response.sendRedirect("/");

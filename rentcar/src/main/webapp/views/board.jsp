@@ -1,3 +1,4 @@
+<%@page import="client.Client"%>
 <%@page import="board.Board"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="board.controller.BoardDao"%>
@@ -10,12 +11,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+	request.setCharacterEncoding("utf-8");
+	
+	Client log = (Client) session.getAttribute("log");
+	%>
 	<jsp:include page="header"></jsp:include>
 		<section>
 			<h1>게시판</h1>
 			<form>
 				<div id="button">	
-					<input type="button" value="게시물 작성" onclick="location.href ='update'">
+					<input type="button" value="게시물 작성" onclick=<%= log != null ? "location.href='post'" : "checkLoggedIn()" %>>
 				</div>
 				<table>
 					<tr>
@@ -25,20 +31,24 @@
 					</tr>
 					<%BoardDao boardDao = BoardDao.getInstance();
 					ArrayList<Board> boardList = boardDao.getAllBoard();
-					for(Board board : boardList){
+					
+					for(int i=boardList.size()-1; i>=0; i--){
+						
+						int code = boardList.get(i).getBoard_code();
+						String title = boardList.get(i).getTitle();
+						String id = boardList.get(i).getClient_id();
+						
 					%>
 					<tr>
-						<td><%=boardList.size()+1 %></td>
-						<td><%=board.getTitle() %></td>
-						<td><%=board.getClient_id() %></td>
+						<td><%=i+1 %></td>
+						<td><a href="post_view?board_code=<%=code %>"><%=title %></a></td>
+						<td><%=id %></td>
 					</tr><%
 					}%>
 				</table>
-				<div id="button">	
-<!-- 					<input type="button" value="정보수정" onclick="location.href ='update'"> -->
-				</div>
 			</form>
 		</section>
+	<script src="../resources/board.js"></script>
 	<jsp:include page="footer"></jsp:include>
 </body>
 </html>

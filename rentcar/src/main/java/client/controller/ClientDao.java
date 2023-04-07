@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import client.Client;
-import client.ClientRequestDto;
+import client.ClientDto;
 import util.DBManager;
 
 public class ClientDao {
@@ -23,7 +23,7 @@ public class ClientDao {
 		return instance;
 	}
 	// C
-	public void createClient(ClientRequestDto clientDto) {
+	public void createClient(ClientDto clientDto) {
 		
 		Client client = new Client(clientDto);
 		this.conn = DBManager.getConnectionFromMySQL();
@@ -137,7 +137,7 @@ public class ClientDao {
 	}
 	// U
 	
-	public void updateClient(ClientRequestDto clientDto , int client_code) {
+	public void updateClient(ClientDto clientDto , int client_code) {
 		
 		Client client = new Client(clientDto);
 		this.conn = DBManager.getConnectionFromMySQL();

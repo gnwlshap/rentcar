@@ -2,12 +2,12 @@ package client;
 
 import java.sql.Timestamp;
 
-public class ClientRequestDto {
+public class ClientDto {
 	private int client_code;
 	private String client_id, client_pw, name, phone;
 	private Timestamp sign_date;
 
-	public ClientRequestDto(int client_code, String client_id, String client_pw, Timestamp sign_date, String name, String phone) {
+	public ClientDto(int client_code, String client_id, String client_pw, Timestamp sign_date, String name, String phone) {
 		this.client_code = client_code;
 		this.client_id = client_id;
 		this.client_pw = client_pw;
@@ -16,7 +16,7 @@ public class ClientRequestDto {
 		this.phone = phone;
 	}
 	
-	public ClientRequestDto(String client_id, String client_pw, String name, String phone) {
+	public ClientDto(String client_id, String client_pw, String name, String phone) {
 		this.client_id = client_id;
 		this.client_pw = client_pw;
 		this.name = name;

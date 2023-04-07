@@ -23,7 +23,7 @@ public class Client {
 		this.phone = phone;
 	}
 	
-	public Client(ClientRequestDto ClientDto) {
+	public Client(ClientDto ClientDto) {
 		this.client_id = ClientDto.getClient_id();
 		this.client_pw = ClientDto.getClient_pw();
 		this.name = ClientDto.getName();

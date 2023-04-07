@@ -2,13 +2,13 @@ package board;
 
 import java.sql.Timestamp;
 
-public class BoardRequestDto {
+public class BoardDto {
 	
 	private int board_code;
 	private String client_id, title, content;
 	private Timestamp post_date;
 	
-	public BoardRequestDto(int board_code, String client_id, String content, String title, Timestamp post_date) {
+	public BoardDto(int board_code, String client_id, String title, String content, Timestamp post_date) {
 		this.board_code = board_code;
 		this.client_id = client_id;
 		this.title = title;
@@ -16,7 +16,7 @@ public class BoardRequestDto {
 		this.post_date = post_date;
 	}
 	
-	public BoardRequestDto(String client_id, String content, String title) {
+	public BoardDto(String client_id, String title, String content) {
 		this.client_id = client_id;
 		this.title = title;
 		this.content = content;

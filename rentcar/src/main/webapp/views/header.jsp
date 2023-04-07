@@ -11,13 +11,13 @@
 </head>
 <body>
 	<%
-		Client client = (Client) session.getAttribute("log");
+		Client log = (Client) session.getAttribute("log");
 	%>
 	<header>
-		<h1><a href="/">동훈 렌터카</a></h1>
+		<h1 onclick="location.href='/'">동훈 렌터카</h1>
 	</header>
 	<nav>
-		<div onclick=<%= client != null ? "location.href='rent'" : "checkLogIn()" %>>
+		<div onclick=<%= log != null ? "location.href='rent'" : "checkLogIn()" %>>
 			렌트하기
 		</div>
 		<div onclick="location.href='board'">
@@ -26,13 +26,10 @@
 		<div onclick="location.href='venue'">
 			지점
 		</div>
-		<div onclick=<%= client == null ? "location.href='login'" : "alert('뭐함')" %>>
-			로그인
-		</div>
-		<div onclick=<%= client != null ? "location.href='mypage'" : "checkLogIn()" %>>
+		<div onclick=<%= log != null ? "location.href='mypage'" : "checkLogIn()" %>>
 			마이페이지
 		</div>
 	</nav>
-	<script src="../resources/validation.js"></script>
+	<script src="../resources/client.js"></script>
 </body>
 </html>

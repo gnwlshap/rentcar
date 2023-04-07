@@ -21,7 +21,7 @@
 	<section>
 		<h1>회원 정보 수정</h1>
 		<form method="post" action="service">
-			<input type="hidden" name="command" value="update">
+			<input type="hidden" name="command" value="clientUpdate">
 			<table>
 				<tr>
 					<td>아이디</td>
@@ -45,11 +45,11 @@
 				</tr>
 			</table>
 			<div id="button">	
-				<input type="button" value="정보수정" onclick="update(form)">
+				<input type="button" value="정보수정" onclick="checkUpdate(form)">
 			</div>
 		</form>
 	</section>
-	<script src="../resources/update.js"></script>
+	<script src="../resources/client.js"></script>
 	<jsp:include page="footer"></jsp:include>
 </body>
 </html>

@@ -41,7 +41,7 @@
 			</div>
 		</form>
 	</section>
-	<script src="../resources/validation.js"></script>
+	<script src="../resources/client.js"></script>
 	<jsp:include page="footer"></jsp:include>
 </body>
 </html>

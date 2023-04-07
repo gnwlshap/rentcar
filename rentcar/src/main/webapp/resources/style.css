@@ -6,13 +6,18 @@
 
 a {
 	text-decoration-line: none;
-	color: white;
 }
 
 header{
 	padding: 30px;
 	text-align: center;
 	background-color: blue;
+	cursor: pointer;
+}
+header>h1{
+	margin: auto;
+	width : fit-content;
+	color : white;
 }
 
 nav {
@@ -33,6 +38,11 @@ section {
 }
 
 section>h1{
+	text-align: center;
+	margin: 30px;
+}
+
+#title{
 	text-align: center;
 	margin: 30px;
 }

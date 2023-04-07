@@ -82,6 +82,36 @@
 		<servlet-name>board</servlet-name>
 		<url-pattern>/board</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>post</servlet-name>
+		<jsp-file>/views/post.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>post</servlet-name>
+		<url-pattern>/post</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>post_view</servlet-name>
+		<jsp-file>/views/post_view.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>post_view</servlet-name>
+		<url-pattern>/post_view</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>post_edit</servlet-name>
+		<jsp-file>/views/post_edit.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>post_edit</servlet-name>
+		<url-pattern>/post_edit</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>rent</servlet-name>

@@ -9,9 +9,6 @@
 <body>
 	<%
 	request.setCharacterEncoding("utf-8");
-	
-	String client_id = request.getParameter("client_id") == "" ? null : request.getParameter("client_id");
-	String client_pw = null;
 	%>
 	<jsp:include page="header"></jsp:include>
 	<section>
@@ -21,11 +18,11 @@
 			<table>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" id="client_id" name="client_id" value="<%=client_id != null ? client_id : ""%>" <%=client_id == null ? "autofocus" : "" %>> </td>
+					<td><input type="text" id="client_id" name="client_id" autofocus> </td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" id="client_pw" name="client_pw" value="<%=client_pw != null ? client_pw : ""%>" <%=client_pw == null ? "autofocus" : "" %>> </td>
+					<td><input type="password" id="client_pw" name="client_pw"> </td>
 				</tr>
 			</table>
 			<div id="button">	
@@ -34,7 +31,7 @@
 			</div>
 		</form>
 	</section>
-	<script src="../resources/validation.js"></script>
+	<script src="../resources/client.js"></script>
 	<jsp:include page="footer"></jsp:include>
 </body>
 </html>

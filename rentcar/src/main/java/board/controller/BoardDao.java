@@ -8,9 +8,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import board.Board;
-import board.BoardRequestDto;
+import board.BoardDto;
 import client.Client;
-import client.ClientRequestDto;
+import client.ClientDto;
 import util.DBManager;
 
 public class BoardDao {
@@ -25,7 +25,7 @@ public class BoardDao {
 	}
 	
 	// C
-	public void createBoard(BoardRequestDto boardDto) {
+	public void createBoard(BoardDto boardDto) {
 		
 		Board board = new Board(boardDto);
 		this.conn = DBManager.getConnectionFromMySQL();
@@ -107,19 +107,50 @@ public class BoardDao {
 		return list;
 	}
 	
+	public Board getBoardByCode(int board_code) {
+		Board board = null;
+		
+		this.conn = DBManager.getConnectionFromMySQL();
+		
+		String sql = "SELECT * FROM board WHERE board_code = ?";
+		
+		try {
+			this.pstmt = conn.prepareStatement(sql);
+			
+			this.pstmt.setInt(1, board_code);
+			
+			this.rs = this.pstmt.executeQuery();
+			
+			while(this.rs.next()) {
+				String client_id = this.rs.getString(2);
+				String title = this.rs.getString(3);
+				String content = this.rs.getString(4);
+				Timestamp post_date = this.rs.getTimestamp(5);
+				
+				board = new Board(board_code, client_id, title, content, post_date);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return board;
+	}
+	
 	// U
-	public void updateBoard(BoardRequestDto boardDto , String client_id) {
+	public void updateBoard(BoardDto boardDto , int board_code) {
 		
 		Board board = new Board(boardDto);
 		this.conn = DBManager.getConnectionFromMySQL();
 		
-		String sql = "UPDATE Board SET title=?, content=? WHERE client_id=?";
+		String sql = "UPDATE Board SET title=?, content=? WHERE board_code=?";
 		try {
 			this.pstmt = conn.prepareStatement(sql);
 			
 			this.pstmt.setString(1, board.getTitle());
 			this.pstmt.setString(2, board.getContent());
-			this.pstmt.setString(3, board.getClient_id());
+			this.pstmt.setInt(3, board_code);
 			
 			this.pstmt.execute();
 		} catch (SQLException e) {
@@ -134,7 +165,7 @@ public class BoardDao {
 		
 		this.conn = DBManager.getConnectionFromMySQL();
 		
-		String sql = "DELETE Board WHERE board_code=? and client_id=?";
+		String sql = "DELETE FROM Board WHERE board_code=? and client_id=?";
 		try {
 			this.pstmt = conn.prepareStatement(sql);
 			
