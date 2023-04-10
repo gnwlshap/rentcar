@@ -122,6 +122,16 @@
 		<servlet-name>rent</servlet-name>
 		<url-pattern>/rent</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>time</servlet-name>
+		<jsp-file>/views/time.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>time</servlet-name>
+		<url-pattern>/time</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>venue</servlet-name>
@@ -131,6 +141,16 @@
 	<servlet-mapping>
 		<servlet-name>venue</servlet-name>
 		<url-pattern>/venue</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>vehicles</servlet-name>
+		<jsp-file>/views/vehicles.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>vehicles</servlet-name>
+		<url-pattern>/vehicles</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

@@ -62,3 +62,11 @@ footer {
 	background-color: blue;
 	color: gray;
 }
+
+td {
+	padding : 5px;
+}
+
+.button {
+	cursor: pointer;
+}

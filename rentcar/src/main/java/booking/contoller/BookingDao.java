@@ -31,7 +31,7 @@ public class BookingDao {
 		Booking booking = new Booking(bd);
 		this.conn = DBManager.getConnectionFromMySQL();
 		
-		String sql = "INSERT INTO Booking(vehicle_id, client_id, venue_id, pick_date, hour)"
+		String sql = "INSERT INTO Booking(vehicle_id, client_id, venue_id, pick_date, return_date)"
 				+ "VALUES(?, ?, ?, ?, ?)";
 		try {
 			this.pstmt = conn.prepareStatement(sql);
@@ -39,8 +39,8 @@ public class BookingDao {
 			this.pstmt.setString(1, booking.getVehicle_id());
 			this.pstmt.setString(2, booking.getClient_id());
 			this.pstmt.setString(3, booking.getVenue_id());
-			this.pstmt.setDate(4, booking.getPick_date());
-			this.pstmt.setInt(5, booking.getHour());
+			this.pstmt.setString(4, booking.getPick_date());
+			this.pstmt.setString(5, booking.getReturn_date());
 			
 			this.pstmt.execute();
 		} catch (SQLException e) {
@@ -67,11 +67,11 @@ public class BookingDao {
 				String vehicle_id = this.rs.getString(1);
 				String client_id = this.rs.getString(2);
 				String venue_id = this.rs.getString(3);
-				Timestamp book_date = this.rs.getTimestamp(4);
-				Date pick_date = this.rs.getDate(5);
-				int hour = this.rs.getInt(6);
-				//dfg
-				booking = new Booking(vehicle_id, client_id, venue_id, book_date, pick_date, hour);
+//				Timestamp book_date = this.rs.getTimestamp(4);
+				String pick_date = this.rs.getString(5);
+				String return_date = this.rs.getString(6);
+				
+				booking = new Booking(vehicle_id, client_id, venue_id, pick_date, return_date);
 				list.add(booking);
 			}
 			

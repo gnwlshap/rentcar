@@ -17,14 +17,11 @@
 		<h1 onclick="location.href='/'">동훈 렌터카</h1>
 	</header>
 	<nav>
-		<div onclick=<%= log != null ? "location.href='rent'" : "checkLogIn()" %>>
+		<div onclick=<%= log != null ? "location.href='venue'" : "checkLogIn()" %>>
 			렌트하기
 		</div>
 		<div onclick="location.href='board'">
 			게시판
-		</div>
-		<div onclick="location.href='venue'">
-			지점
 		</div>
 		<div onclick=<%= log != null ? "location.href='mypage'" : "checkLogIn()" %>>
 			마이페이지

@@ -6,6 +6,7 @@ import controller.action.LoginAction;
 import controller.action.LogoutAction;
 import controller.action.PostDeleteAction;
 import controller.action.PostEditAction;
+import controller.action.RentAction;
 import controller.action.ClientUpdateAction;
 import controller.action.PostAction;
 
@@ -42,6 +43,9 @@ public class ActionFactory {
 		
 		if(command.equals("postEdit")) 
 			action = new PostEditAction();
+		
+		if(command.equals("rent")) 
+			action = new RentAction();
 		
 		return action;
 	}

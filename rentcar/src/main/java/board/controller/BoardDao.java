@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 import board.Board;
 import board.BoardDto;
-import client.Client;
-import client.ClientDto;
 import util.DBManager;
 
 public class BoardDao {

@@ -1,21 +1,17 @@
 package booking;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Booking {
-	private String vehicle_id, client_id, venue_id;
+	private String vehicle_id, client_id, venue_id , pick_date, return_date;
 	private Timestamp book_date;
-	private Date pick_date;
-	private int hour;
 	
-	public Booking(String vehicle_id, String client_id, String venue_id, Timestamp book_date, Date pick_date, int hour ) {
+	public Booking(String vehicle_id, String client_id, String venue_id, String pick_date, String return_date) {
 		this.vehicle_id = vehicle_id;
 		this.client_id = client_id;
 		this.venue_id = venue_id;
-		this.book_date = book_date;
 		this.pick_date = pick_date;
-		this.hour = hour;
+		this.return_date = return_date;
 	}
 	
 	public Booking(BookingDto bd) {
@@ -23,7 +19,7 @@ public class Booking {
 		this.client_id = bd.getClient_id();
 		this.venue_id = bd.getVenue_id();
 		this.pick_date = bd.getPick_date();
-		this.hour = bd.getHour();
+		this.return_date = bd.getReturn_date();
 	}
 
 	public String getVehicle_id() {
@@ -42,12 +38,12 @@ public class Booking {
 		return book_date;
 	}
 
-	public Date getPick_date() {
+	public String getPick_date() {
 		return pick_date;
 	}
 
-	public int getHour() {
-		return hour;
+	public String getReturn_date() {
+		return return_date;
 	}
 
 	
