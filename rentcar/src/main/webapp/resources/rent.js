@@ -12,5 +12,5 @@ function rent(htmlForm, vehicle_id, vehicle_name) {
 	htmlForm.vehicle_id.value = vehicle_id;
 	
 	if(confirm(`픽업 일자 : ${pickup_time}\n반납 일자 : ${return_time}\n차종 : ${vehicle_name}\n지점 : ${venue_name}`))
-	htmlForm.submit();
+		htmlForm.submit();
 }

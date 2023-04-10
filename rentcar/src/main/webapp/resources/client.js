@@ -54,7 +54,7 @@ function checkJoinValues(htmlForm) {
 //	if(check === false)
 //		location.href = url;
 	
-	else
+	else if(confirm("회원가입 하시겠습니까?"))
 		htmlForm.submit();
 }
 

@@ -63,13 +63,10 @@
 					String vehicle_id = bc.getVehicle_id();
 					String client_id = bc.getClient_id();
 					String venue_id = bc.getVenue_id();
-					System.out.println(venue_id);
 					String venue_name = venueDao.getVenueById(venue_id);
-					System.out.println(venue_name);
 					String pick_date = sdf.format(bc.getPick_date());
 					String return_date = sdf.format(bc.getReturn_date());
 					String vehicle_name = bc.getVehicle_name();
-					System.out.println(vehicle_name);
 					int rent_hour = bc.getRent_hour();
 					int total_cost = bc.getTotal_cost();
 				%>
