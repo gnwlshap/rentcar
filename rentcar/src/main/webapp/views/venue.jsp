@@ -19,11 +19,11 @@
 			<form>
 				<table id="venue">
 					<tr class="button">
-						<td onclick="location.href='time?venue_id=01'">강남구</td>
-						<td onclick="location.href='time?venue_id=02'">송파구</td>
-						<td onclick="location.href='time?venue_id=03'">강동구</td>
-						<td onclick="location.href='time?venue_id=04'">서초구</td>
-						<td onclick="location.href='time?venue_id=05'">용산구</td>
+						<td onclick="location.href='time?venue_id=seoul01'">강남구</td>
+						<td onclick="location.href='time?venue_id=seoul02'">서초구</td>
+						<td onclick="location.href='time?venue_id=seoul03'">강동구</td>
+						<td onclick="location.href='time?venue_id=seoul04'">용산구</td>
+						<td onclick="location.href='time?venue_id=seoul05'">서초구</td>
 					</tr>
 				</table>
 			</form>

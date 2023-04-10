@@ -3,10 +3,10 @@ package booking;
 import java.sql.Timestamp;
 
 public class BookingDto {
-	private String vehicle_id, client_id, venue_id, pick_date, return_date;
-	private Timestamp book_date;
+	private String vehicle_id, client_id, venue_id;
+	private Timestamp book_date, pick_date, return_date;
 	
-	public BookingDto(String vehicle_id, String client_id, String venue_id, String pick_date, String return_date ) {
+	public BookingDto(String vehicle_id, String client_id, String venue_id, Timestamp pick_date, Timestamp return_date ) {
 		this.vehicle_id = vehicle_id;
 		this.client_id = client_id;
 		this.venue_id = venue_id;
@@ -30,11 +30,11 @@ public class BookingDto {
 		return book_date;
 	}
 
-	public String getPick_date() {
+	public Timestamp getPick_date() {
 		return pick_date;
 	}
 
-	public String getReturn_date() {
+	public Timestamp getReturn_date() {
 		return return_date;
 	}
 
@@ -54,11 +54,11 @@ public class BookingDto {
 		this.book_date = book_date;
 	}
 
-	public void setPick_date(String pick_date) {
+	public void setPick_date(Timestamp pick_date) {
 		this.pick_date = pick_date;
 	}
 
-	public void setReturn_date(String return_date) {
+	public void setReturn_date(Timestamp return_date) {
 		this.return_date = return_date;
 	}
 	

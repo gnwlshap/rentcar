@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import booking.Booking;
@@ -33,14 +34,17 @@ public class BookingDao {
 		
 		String sql = "INSERT INTO Booking(vehicle_id, client_id, venue_id, pick_date, return_date)"
 				+ "VALUES(?, ?, ?, ?, ?)";
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		
 		try {
 			this.pstmt = conn.prepareStatement(sql);
 			
 			this.pstmt.setString(1, booking.getVehicle_id());
 			this.pstmt.setString(2, booking.getClient_id());
 			this.pstmt.setString(3, booking.getVenue_id());
-			this.pstmt.setString(4, booking.getPick_date());
-			this.pstmt.setString(5, booking.getReturn_date());
+			this.pstmt.setString(4, sdf.format(booking.getPick_date()));
+			this.pstmt.setString(5, sdf.format(booking.getReturn_date()));
 			
 			this.pstmt.execute();
 		} catch (SQLException e) {
@@ -68,8 +72,8 @@ public class BookingDao {
 				String client_id = this.rs.getString(2);
 				String venue_id = this.rs.getString(3);
 //				Timestamp book_date = this.rs.getTimestamp(4);
-				String pick_date = this.rs.getString(5);
-				String return_date = this.rs.getString(6);
+				Timestamp pick_date = this.rs.getTimestamp(5);
+				Timestamp return_date = this.rs.getTimestamp(6);
 				
 				booking = new Booking(vehicle_id, client_id, venue_id, pick_date, return_date);
 				list.add(booking);
