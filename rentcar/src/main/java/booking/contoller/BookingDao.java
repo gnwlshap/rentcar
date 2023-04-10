@@ -70,7 +70,7 @@ public class BookingDao {
 				Timestamp book_date = this.rs.getTimestamp(4);
 				Date pick_date = this.rs.getDate(5);
 				int hour = this.rs.getInt(6);
-				
+				//dfg
 				booking = new Booking(vehicle_id, client_id, venue_id, book_date, pick_date, hour);
 				list.add(booking);
 			}
