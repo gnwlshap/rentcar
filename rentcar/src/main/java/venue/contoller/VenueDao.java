@@ -50,4 +50,28 @@ public class VenueDao {
 		}
 		return list;
 	}
+	
+	public String getVenueById(String venueId){
+		String venueName = null;
+		
+		this.conn = DBManager.getConnectionFromMySQL();
+		
+		String sql = "SELECT venue_name FROM Venue WHERE venue_id =?";
+		
+		try {
+			this.pstmt = conn.prepareStatement(sql);
+			this.pstmt.setString(1, venueId);
+			
+			this.rs = this.pstmt.executeQuery();
+			
+			if(this.rs.next())
+				venueName = this.rs.getString(1);
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return venueName;
+	}
 }

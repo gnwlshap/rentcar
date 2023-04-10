@@ -1,3 +1,4 @@
+<%@page import="venue.contoller.VenueDao"%>
 <%@page import="vehicle.Vehicle"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="vehicle.controller.VehicleDao"%>
@@ -17,6 +18,9 @@
 	String returnTime = request.getParameter("return_date") + " " + request.getParameter("return_time");
 	
 	String venue_id = request.getParameter("venue_id");
+	
+	VenueDao venueDao = VenueDao.getInstance();
+	VehicleDao vehicleDao = VehicleDao.getInstance();
 	%>
 	<jsp:include page="header"></jsp:include>
 	<section>
@@ -26,10 +30,10 @@
 				<input type="hidden" id="pickup_time" name="pickup_time" value="<%=pickUpTime %>"> 
 				<input type="hidden" id="return_time" name="return_time" value="<%=returnTime %>"> 
 				<input type="hidden" name="venue_id" value="<%=venue_id %>">
+				<input type="hidden" id="venue_name" name="venue_name" value="<%=venueDao.getVenueById(venue_id) %>">
 				<input type="hidden" id="vehicle_id" name="vehicle_id">
 				<table>
 					<%
-					VehicleDao vehicleDao = VehicleDao.getInstance();
 					ArrayList<Vehicle> vehicleList = vehicleDao.getRentableVehicle_id(returnTime, pickUpTime, venue_id);
 					for(int i=0; i<vehicleList.size(); i++){
 						
@@ -39,7 +43,7 @@
 					%>
 					<tr>
 						<td><%=i+1 %></td>
-						<td class="button" id="vehicle_name" onclick="rent(document.getElementById('rent_form'),'<%=vehicle_id %>')"><%=vehicle_name %></td>
+						<td class="button" id="vehicle_name" onclick="rent(document.getElementById('rent_form'),'<%=vehicle_id %>', '<%=vehicleDao.getVehicleNameByVehicleId(vehicle_id) %>')"><%=vehicle_name %></td>
 						<td>시간당 요금 : <%=hour_rate %>원</td>
 					</tr>
 					<%

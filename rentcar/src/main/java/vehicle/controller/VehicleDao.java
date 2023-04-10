@@ -122,4 +122,28 @@ public class VehicleDao {
 		return list;
 	}
 	
+	public String getVehicleNameByVehicleId(String vehicleId){
+		String vehicleName = null;
+		
+		this.conn = DBManager.getConnectionFromMySQL();
+		
+		String sql = "SELECT vehicle_name FROM vehicle WHERE vehicle_id = ?";
+		
+		try {
+			this.pstmt = conn.prepareStatement(sql);
+			
+			this.pstmt.setString(1, vehicleId);
+			
+			this.rs = this.pstmt.executeQuery();
+			
+			if(this.rs.next())
+				vehicleName = this.rs.getString(1);
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return vehicleName;
+	}
 }
